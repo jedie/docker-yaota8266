@@ -1,0 +1,3 @@
+[submodule "yaota8266"]
+	path = yaota8266
+	url = https://github.com/jedie/yaota8266.git
