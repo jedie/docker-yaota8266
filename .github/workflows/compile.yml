@@ -13,3 +13,4 @@ jobs:
         cp yaota8266/config.h.example yaota8266/config.h
         make compile
         ls -la yaota8266/
+        file yaota8266/yaota8266.bin
