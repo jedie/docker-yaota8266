@@ -4,9 +4,8 @@ Compile yaota8266 via docker.
 
 yaota8266 is yet another bootloader/over-the-air (OTA) update solution for ESP8266 WiFi SoC.
 
-yaota8266 sources are here:
-
- * https://github.com/pfalcon/yaota8266
+Origin yaota8266 sources are from: https://github.com/pfalcon/yaota8266
+But currently this Project used a fork from: https://github.com/jedie/yaota8266 because of many missing patches. More info here: https://github.com/pfalcon/yaota8266/pull/27 see also: https://github.com/micropython/micropython/issues/2535#issuecomment-569740745
 
 Docker image to compile is https://hub.docker.com/r/jedie/micropython builded via https://github.com/jedie/docker-micropython
 
