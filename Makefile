@@ -54,7 +54,7 @@ compile: update  ## compile the yaota8266/yaota8266.bin
 		echo -n "\nERROR: Please create '${CONFIG_FILE}' first!\n\n" ; \
 		exit 1 ; \
 	fi
-	docker run -it \
+	docker run \
 		-e "DOCKER_UID=${DOCKER_UID}" \
 		-e "DOCKER_UGID=${DOCKER_UGID}" \
 		--mount type=bind,src=${PWD}/yaota8266/,dst=/mpy/yaota8266/ \
