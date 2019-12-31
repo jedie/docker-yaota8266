@@ -1,0 +1,15 @@
+name: Python application
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: 'compile yaota8266.bin'
+      run: |
+        make rsa-keys
+        cp yaota8266/config.h.example yaota8266/config.h
+        make compile
+        ls -la yaota8266/
