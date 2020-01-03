@@ -1,5 +1,7 @@
 # docker-yaota8266
 
+![badge.svg](https://github.com/jedie/docker-yaota8266/workflows/Compile%20yaota8266.bin/badge.svg?branch=master)
+
 Compile yaota8266 via docker.
 
 yaota8266 is yet another bootloader/over-the-air (OTA) update solution for ESP8266 WiFi SoC.
