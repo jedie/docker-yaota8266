@@ -37,7 +37,7 @@ Copy&paste RSA modulus line into your `config.h`
 
 To compile `yaota8266.bin` call:
 ```
-~/docker-yaota8266& make compile
+~/docker-yaota8266& make build
 ```
 
 The final `yaota8266.bin` is generated here: `~/docker-yaota8266/yaota8266/yaota8266.bin`
@@ -52,5 +52,5 @@ make targets:
   docker-build      pull and build docker images
   update            update git repositories/submodules, docker images and build local docker images
   shell             start a bash shell in docker container "local/yaota8266:latest"
-  compile           compile the yaota8266/yaota8266.bin
+  build             compile the yaota8266/yaota8266.bin
 ```

@@ -43,10 +43,10 @@ rsa-keys: update  ## Pull/build yaota8266 docker images and Generate RSA keys an
 		-e "DOCKER_UGID=${DOCKER_UGID}" \
 		--mount type=bind,src=${PWD}/yaota8266/,dst=/mpy/yaota8266/ \
 		local/yaota8266:latest \
-		/mpy/yaota8266/ota-client/gen_keys.sh
+		/bin/bash -c "cd /mpy/yaota8266/ && make rsa-keys"
 
 
-compile: update  ## compile the yaota8266/yaota8266.bin
+build: update  ## compile the yaota8266/yaota8266.bin
 	@if [ -f ${CONFIG_FILE} ] ; \
 	then \
 		echo -n "\n${CONFIG_FILE} exists, ok.\n\n" ; \
@@ -59,4 +59,4 @@ compile: update  ## compile the yaota8266/yaota8266.bin
 		-e "DOCKER_UGID=${DOCKER_UGID}" \
 		--mount type=bind,src=${PWD}/yaota8266/,dst=/mpy/yaota8266/ \
 		local/yaota8266:latest \
-		/bin/bash -c "cd /mpy/yaota8266/ && make"
+		/bin/bash -c "cd /mpy/yaota8266/ && make clean && make build"
