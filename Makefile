@@ -44,21 +44,7 @@ verify:  ## Check RSA key, config.h and compiled "yaota8266.bin"
 	$(MAKE) -C yaota8266 verify
 
 assert-yaota8266-setup:
-	@if [ -f yaota8266/config.h ] ; \
-	then \
-		echo -n "\nyaota8266/config.h exists, ok.\n\n" ; \
-	else \
-		echo -n "\nERROR: Please create 'yaota8266/config.h' first!\n\n" ; \
-		exit 1 ; \
-	fi
-
-	@if [ -f yaota8266/ota_client/priv.key ] ; \
-	then \
-		echo -n "\nyaota8266/ota_client/priv.key exists, ok.\n\n" ; \
-	else \
-		echo -n "\nERROR: RSA priv.key not found! Please call 'make yaota8266-rsa-keys' first!\n\n" ; \
-		exit 1 ; \
-	fi
+	$(MAKE) -C yaota8266 assert-yaota8266-setup
 
 build: update assert-yaota8266-setup ## compile the yaota8266/yaota8266.bin
 	@if [ -f ${CONFIG_FILE} ] ; \
