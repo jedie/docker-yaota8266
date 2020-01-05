@@ -48,7 +48,24 @@ rsa-keys: update  ## Pull/build yaota8266 docker images and Generate RSA keys an
 verify:  ## Check RSA key, config.h and compiled "yaota8266.bin"
 	$(MAKE) -C yaota8266 verify
 
-build: update  ## compile the yaota8266/yaota8266.bin
+assert-yaota8266-setup:
+	@if [ -f yaota8266/config.h ] ; \
+	then \
+		echo -n "\nyaota8266/config.h exists, ok.\n\n" ; \
+	else \
+		echo -n "\nERROR: Please create 'yaota8266/config.h' first!\n\n" ; \
+		exit 1 ; \
+	fi
+
+	@if [ -f yaota8266/ota_client/priv.key ] ; \
+	then \
+		echo -n "\nyaota8266/ota_client/priv.key exists, ok.\n\n" ; \
+	else \
+		echo -n "\nERROR: RSA priv.key not found! Please call 'make yaota8266-rsa-keys' first!\n\n" ; \
+		exit 1 ; \
+	fi
+
+build: update assert-yaota8266-setup ## compile the yaota8266/yaota8266.bin
 	@if [ -f ${CONFIG_FILE} ] ; \
 	then \
 		echo -n "\n${CONFIG_FILE} exists, ok.\n\n" ; \
