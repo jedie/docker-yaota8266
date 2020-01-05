@@ -37,13 +37,8 @@ shell: docker-build  ## start a bash shell in docker container "local/yaota8266:
     /bin/bash
 
 
-rsa-keys: update  ## Pull/build yaota8266 docker images and Generate RSA keys and/or print RSA modulus line for copy&paste into config.h
-	docker run \
-		-e "DOCKER_UID=${DOCKER_UID}" \
-		-e "DOCKER_UGID=${DOCKER_UGID}" \
-		--mount type=bind,src=${PWD}/yaota8266/,dst=/mpy/yaota8266/ \
-		local/yaota8266:latest \
-		/bin/bash -c "cd /mpy/yaota8266/ && make rsa-keys"
+rsa-keys: ## Generate RSA keys and/or print RSA modulus line for copy&paste into config.h
+	$(MAKE) -C yaota8266 rsa-keys
 
 verify:  ## Check RSA key, config.h and compiled "yaota8266.bin"
 	$(MAKE) -C yaota8266 verify
