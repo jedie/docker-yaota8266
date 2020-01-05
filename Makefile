@@ -45,6 +45,8 @@ rsa-keys: update  ## Pull/build yaota8266 docker images and Generate RSA keys an
 		local/yaota8266:latest \
 		/bin/bash -c "cd /mpy/yaota8266/ && make rsa-keys"
 
+verify:  ## Check RSA key, config.h and compiled "yaota8266.bin"
+	$(MAKE) -C yaota8266 verify
 
 build: update  ## compile the yaota8266/yaota8266.bin
 	@if [ -f ${CONFIG_FILE} ] ; \
