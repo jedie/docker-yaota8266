@@ -9,8 +9,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: 'compile yaota8266.bin'
       run: |
+        make update
         make rsa-keys
         cp yaota8266/config.h.example yaota8266/config.h
-        make compile
+        make build
         ls -la yaota8266/
         file yaota8266/yaota8266.bin
