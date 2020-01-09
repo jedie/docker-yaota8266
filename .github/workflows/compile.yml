@@ -7,11 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: 'compile yaota8266.bin'
+
+    - name: 'init'
       run: |
         make update
         make rsa-keys
-        cp yaota8266/config.h.example yaota8266/config.h
+
+    - name: 'compile yaota8266.bin'
+      run: |
         make build
         ls -la yaota8266/
         file yaota8266/yaota8266.bin
+        make verify
